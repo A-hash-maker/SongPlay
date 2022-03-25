@@ -8,85 +8,92 @@
 import Foundation
 import SwiftyJSON
 
-
+// MARK: - Artist
 struct ArtistModel: Codable {
-    
-//    var resultCount: Int
-    var results: [Artist]
-    
-    enum CodingKeys: String, CodingKey {
-//        case resultCount
-        case results
-      }
-    
-    init(from decoder: Decoder) throws {
-        let contianer = try decoder.container(keyedBy: CodingKeys.self)
-//        self.resultCount = try contianer.decode(Int.self, forKey: .resultCount)
-        self.results = try contianer.decode([Artist].self, forKey: .results)
-    }
-    
-    
+    let results: [Artist]
+    let resultCount: Int
 }
 
-
+// MARK: - Result
 struct Artist: Codable {
+    let collectionExplicitness: String?
+    let artistName: String?
+    let previewURL: String?
+    let artworkUrl100: String?
+    let primaryGenreName: String?
+    let releaseDate: String?
+    let trackExplicitness: String?
+    let collectionCensoredName: String?
+    let collectionViewURL: String?
+    let trackCensoredName: String?
+    let trackViewURL: String?
+    let collectionHDPrice, trackHDRentalPrice: Double?
+    let collectionID: Int?
+    let collectionPrice: Double?
+    let kind: String?
+    let collectionName: String?
+    let trackHDPrice, trackRentalPrice: Double?
+    let longDescription: String?
+    let hasITunesExtras: Bool?
+    let collectionArtistID: Int?
+    let collectionArtistViewURL: String?
+    let shortDescription: String?
+    let artworkUrl30: String?
+    let trackTimeMillis: Int?
+    let wrapperType: String?
+    let trackID: Int?
+    let artworkUrl60: String?
+    let trackCount: Int?
+    let trackName: String?
+    let contentAdvisoryRating: String?
+    let country: String?
+    let trackNumber: Int?
+    let trackPrice: Double?
+    let currency: String?
+    let isStreamable: Bool?
+    let artistID, discCount, discNumber: Int?
+    let artistViewURL: String?
+    let collectionArtistName: String?
 
-//    var wrapperType: String
-//    var artistId: Int
-//    var collectionId: Int
-    var artistName: String
-//    var collectionName: String
-//    var collectionCensoredName: String
-//    var artistViewUrl: String
-//    var collectionViewUrl: String
-//    var artworkUrl60: String
-    var artworkUrl100: String
-//    var collectionPrice: Double
-//    var collectionExplicitness: String
-//    var trackCount: Int
-//    var copyright: String
-//    var country: String
-//    var currency: String
-//    var releaseDate: String
-//    var primaryGenreName: String
-    var previewUrl: String
-//    var description: String
-    
     enum CodingKeys: String, CodingKey {
-//        case wrapperType
-//        case artistId
-//        case collectionId
+        case collectionExplicitness
         case artistName
-//        case collectionName
-//        case collectionCensoredName
-//        case artistViewUrl
-//        case collectionViewUrl
-//        case artworkUrl60
-        case artworkUrl100
-//        case collectionPrice
-//        case collectionExplicitness
-//        case trackCount
-//        case copyright
-//        case country
-//        case currency
-//        case releaseDate
-//        case primaryGenreName
-        case previewUrl
-//        case description
-      }
-    
-    init(from decoder: Decoder) throws {
-        let contianer = try decoder.container(keyedBy: CodingKeys.self)
-        self.artworkUrl100 = try contianer.decode(String.self, forKey: .artworkUrl100)
-        
-//        self.wrapperType = try contianer.decode(String.self, forKey: .wrapperType)
-//        self.artistId = try contianer.decode(Int.self, forKey: .artistId)
-//        self.collectionId = try contianer.decode(Int.self, forKey: .collectionId)
-        self.artistName = try contianer.decode(String.self, forKey: .artistName)
-        self.previewUrl = try contianer.decode(String.self, forKey: .previewUrl)
-//        self.collectionName = try contianer.decode(String.self, forKey: .collectionName)
+        case previewURL
+        case artworkUrl100, primaryGenreName, trackExplicitness, collectionCensoredName, releaseDate
+        case collectionViewURL
+        case trackCensoredName
+        case trackViewURL
+        case collectionHDPrice
+        case trackHDRentalPrice
+        case collectionID
+        case collectionPrice, collectionName, kind
+        case trackHDPrice
+        case trackRentalPrice, longDescription, hasITunesExtras
+        case collectionArtistID
+        case collectionArtistViewURL
+        case shortDescription, artworkUrl30, trackTimeMillis, wrapperType
+        case trackID
+        case artworkUrl60, trackCount, trackName, contentAdvisoryRating, country, trackNumber, trackPrice, currency, isStreamable
+        case artistID
+        case discCount, discNumber
+        case artistViewURL
+        case collectionArtistName
     }
-    
-    
-    
 }
+
+//enum Explicitness: String, Codable {
+//    case notExplicit = "notExplicit"
+//}
+
+//enum Country: String, Codable {
+//    case usa = "USA"
+//}
+//
+//enum Currency: String, Codable {
+//    case usd = "USD"
+//}
+
+//enum Kind: String, Codable {
+//    case featureMovie = "feature-movie"
+//    case song = "song"
+//}

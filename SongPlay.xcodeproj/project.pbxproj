@@ -21,8 +21,23 @@
 		045C2A3D27EC7D5D0047DA6B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C2A3C27EC7D5D0047DA6B /* SecondViewController.swift */; };
 		045C2A3F27EC92D80047DA6B /* artistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045C2A3327EC6AF80047DA6B /* artistTableViewCell.xib */; };
 		045C2A6D27EDC3190047DA6B /* SecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C2A6C27EDC3190047DA6B /* SecondViewModel.swift */; };
-		7F0EFE000C2BD1B8A3781464 /* Pods_SongPlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE15D8411D71F336F4D8BED /* Pods_SongPlay.framework */; };
+		045C2A6E27EDDF3F0047DA6B /* Pods_SongPlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE15D8411D71F336F4D8BED /* Pods_SongPlay.framework */; };
+		045C2A6F27EDDF3F0047DA6B /* Pods_SongPlay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDE15D8411D71F336F4D8BED /* Pods_SongPlay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		045C2A7027EDDF3F0047DA6B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				045C2A6F27EDDF3F0047DA6B /* Pods_SongPlay.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		045C2A1927EC689D0047DA6B /* SongPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F0EFE000C2BD1B8A3781464 /* Pods_SongPlay.framework in Frameworks */,
+				045C2A6E27EDDF3F0047DA6B /* Pods_SongPlay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +150,7 @@
 				045C2A1627EC689D0047DA6B /* Frameworks */,
 				045C2A1727EC689D0047DA6B /* Resources */,
 				28DA473E18CCEEED04AF570F /* [CP] Embed Pods Frameworks */,
+				045C2A7027EDDF3F0047DA6B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

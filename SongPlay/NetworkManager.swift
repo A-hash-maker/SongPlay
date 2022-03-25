@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 
 class NetworkManager {
@@ -33,8 +34,10 @@ class NetworkManager {
             }
             
             do {
-                let json = try JSONSerialization.jsonObject(with: data, options: []) 
-                print(json)
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                var obj = JSON(data)
+                print(obj)
+//                print(json)
             }catch {
                 print(error.localizedDescription)
             }

@@ -34,14 +34,14 @@ class HomeViewController: UIViewController {
 //            view
         }
         
-        viewModel.openSongDetail = { artist in
-            self.currenrArtist = artist
-            self.navigateToSecondVC()
+        viewModel.openSongDetail = { [weak self] artist in
+            self?.currenrArtist = artist
+            self?.navigateToSecondVC()
         }
     }
     
     func navigateToSecondVC() {
-        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "") as? SecondViewController {
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController {
             vc.artist = currenrArtist
             self.navigationController?.pushViewController(vc, animated: true)
         }

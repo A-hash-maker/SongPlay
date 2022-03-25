@@ -24,6 +24,8 @@ class SecondViewController: UIViewController {
     var viewModel = SecondViewModel()
     var audioPlayer: AVAudioPlayer!
     
+    var isPlaying: Bool = false
+    
     var player: AVPlayer?
     var playerLayer: AVPlayerLayer?
 
@@ -47,7 +49,6 @@ class SecondViewController: UIViewController {
         }else {
             stopVideo()
         }
-        
     }
     
     
@@ -61,10 +62,10 @@ class SecondViewController: UIViewController {
     func setupUI() {
         
         artistNameLbl.text = artist.artistName
-//        collectionNameLbl.text = artist.
-        primaryGivenNameLbl.text = ""
-        releaseDateLbl.text = ""
-        copyRightLbl.text = ""
+        collectionNameLbl.text = artist.collectionName
+        primaryGivenNameLbl.text = artist.primaryGenreName
+        releaseDateLbl.text = artist.releaseDate
+        copyRightLbl.text = "\(artist.trackID)"
     }
     
     
@@ -73,6 +74,7 @@ class SecondViewController: UIViewController {
     
     func downloadFileAndPlay() {
         
+        viewModel.audio = artist.previewURL ?? ""
         viewModel.downloadFile { sucess in
             if sucess {
                 
@@ -87,20 +89,20 @@ class SecondViewController: UIViewController {
     
     func playdownload() {
         
-        if let audioUrl = URL(string: artist.previewUrl) {
-            
+        if let audioUrl = URL(string: artist.previewURL!) {
+
             // then lets create your document folder url
             let documentsDirectoryURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-            
+
             // lets create your destination file url
             let destinationUrl = documentsDirectoryURL.appendingPathComponent(audioUrl.lastPathComponent)
-            
+
             //let url = Bundle.main.url(forResource: destinationUrl, withExtension: "mp3")!
-            
+
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: destinationUrl)
                 guard let player = audioPlayer else { return }
-                
+
                 player.prepareToPlay()
                 player.play()
             } catch let error {
@@ -110,12 +112,17 @@ class SecondViewController: UIViewController {
     }
     
     func stopAudio() {
-        audioPlayer.stop()
+        
+        if isPlaying {
+            audioPlayer.stop()
+        }
+        
+        
     }
     
     
     func playVideo() {
-        if let videoUrl = URL(string: artist.previewUrl) {
+        if let videoUrl = URL(string: artist.previewURL!) {
             // then lets create your document folder url
             let documentsDirectoryURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
             

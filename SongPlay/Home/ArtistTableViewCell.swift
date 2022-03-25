@@ -32,8 +32,8 @@ class ArtistTableViewCell: UITableViewCell {
 //
 //
 //
-            if URL(string: item.artworkUrl100) != nil {
-                let resource = ImageResource(downloadURL: URL(string: item.artworkUrl100)!, cacheKey: item.artworkUrl100)
+            if URL(string: item.artworkUrl100!) != nil {
+                let resource = ImageResource(downloadURL: URL(string: item.artworkUrl100!)!, cacheKey: item.artworkUrl100)
                 artworkImg.kf.setImage(with: resource, placeholder: nil, options: nil, progressBlock: nil, completionHandler: nil)
             }
             
