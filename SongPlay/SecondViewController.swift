@@ -104,6 +104,7 @@ class SecondViewController: UIViewController {
                 guard let player = audioPlayer else { return }
 
                 player.prepareToPlay()
+                isPlaying = true
                 player.play()
             } catch let error {
                 print(error.localizedDescription)
@@ -115,6 +116,7 @@ class SecondViewController: UIViewController {
         
         if isPlaying {
             audioPlayer.stop()
+            isPlaying = !isPlaying
         }
         
         
